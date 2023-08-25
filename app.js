@@ -8,6 +8,11 @@ const nextScene = () => {
     if (sceneCounter === 2) {
         characterAnimation(undefined);
     }
+
+    if (sceneCounter === 1) {
+        const elem = document.getElementsByTagName("body")[0];
+        elem.requestFullscreen();
+    }
 }
 
 let speed = 200;
