@@ -136,7 +136,7 @@ const switchLane = (lane) => {
 
 const addEntity = (lane, name) => {
     const element = document.createElement('img');
-    element.src = `/assets/${name}.png`;
+    element.src = `./assets/${name}.png`;
     element.className = 'entity ' + lane;
 
     element

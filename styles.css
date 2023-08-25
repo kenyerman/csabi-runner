@@ -79,7 +79,7 @@ html, body {
 }
 
 #scene-1 {
-    background: url('/assets/scene-1.jpg');
+    background: url('./assets/scene-1.jpg');
     background-size: 200% 100%;
     background-position: 100% 100%;
 
@@ -196,15 +196,15 @@ html, body {
         /* transition: 200ms background-position-y linear; */
 
         &.left {
-            background-image: url('/assets/left.png');
+            background-image: url('./assets/left.png');
         }
 
         &.center {
-            background-image: url('/assets/center.png');
+            background-image: url('./assets/center.png');
         }
 
         &.right {
-            background-image: url('/assets/right.png');
+            background-image: url('./assets/right.png');
         }
     }
 
