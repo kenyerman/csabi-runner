@@ -1,0 +1,379 @@
+html, body {
+    margin: 0;
+    font-family: 'VT323', monospace;
+    background-color: black;
+    overflow: hidden;
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 1s opacity ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: inherit;
+    }
+}
+
+#scene-0 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+    position: relative;
+
+    > h1 {
+        margin: 0;
+        font-size: 42px;
+        animation: 1s titleH1 infinite linear alternate;
+    }
+
+    > h2 {
+        color: #fff454;
+        font-size: 32px;
+        margin: 0;
+        animation: 1s titleH2 infinite linear alternate;
+    }
+
+    > .button {
+        border: 3px solid #041c85;
+        text-transform: uppercase;
+        font-family: 'VT323', monospace;
+        font-size: 24px;
+
+        padding: 16px;
+        background-color: #0118cc;
+        color: #19c2f9;
+        animation: 100ms titleButton infinite linear alternate;
+    }
+
+    > .csabi {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        animation: 1s fadein;
+    }
+
+    > .trouble {
+        position: absolute;
+        bottom: 85px;
+        left: 150px;
+        width: 200px;
+        animation: 1s fadein;
+    }
+}
+
+#scene-1 {
+    background: url('./assets/scene-1.jpg');
+    background-size: 200% 100%;
+    background-position: 100% 100%;
+
+    &.active {
+        animation: 5s 1s scene1Scroll ease both;
+
+        > h1 {
+            animation: 3s 3s fadein both reverse;
+        }
+
+        > .csabi {
+            animation: 1s 6s fadein both;
+        }
+
+        > .textbox {
+            animation: 1s 6s fadein both;
+
+            > .text1 {
+                animation: 500ms 7s fadein both;
+            }
+
+            > .text2 {
+                animation: 500ms 8s fadein both;
+            }
+
+            > .text3 {
+                animation: 500ms 9s fadein both;
+            }
+
+            > .text4 {
+                animation: 500ms 10s fadein both;
+            }
+
+            > .btn-holder {
+                animation: 500ms 11s fadein both;
+            }
+        }
+    }
+
+    > .csabi {
+        position: absolute;
+        bottom: 250px;
+        left: 0;
+        width: 250px;
+        height: 250px;
+    }
+
+    > h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #f3420c;
+        text-align: center;
+        margin-top: 40px;
+        border-bottom: 3px double #f3420c;
+
+        background-color: #000000;
+        padding: 16px;
+    }
+
+    > .textbox {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 250px;
+        background-color: #000;
+        border-top: 3px double #19c3f7;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 24px;
+        padding: 16px;
+
+        box-sizing: border-box;
+
+        > .left {
+            align-self: flex-start;
+            color: #19c3f7;
+        }
+
+        > .right {
+            align-self: flex-end;
+            color: #e20606;
+        }
+
+        > .btn-holder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > .button {
+                border: 3px solid #041c85;
+                text-transform: uppercase;
+                font-family: 'VT323', monospace;
+                font-size: 24px;
+        
+                padding: 16px;
+                background-color: #0118cc;
+                color: #19c2f9;
+                animation: 100ms titleButton infinite linear alternate;
+            }
+        }
+
+    }
+}
+
+#scene-2 {
+    display: flex;
+    
+    > .map {
+        flex-basis: 33%;
+        background-size: 100% auto;
+        /* transition: 200ms background-position-y linear; */
+
+        &.left {
+            background-image: url('/assets/left.png');
+        }
+
+        &.center {
+            background-image: url('/assets/center.png');
+        }
+
+        &.right {
+            background-image: url('/assets/right.png');
+        }
+    }
+
+    > .title-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        z-index: 2;
+
+        background: #000;
+        color: #fff;
+
+        > .speed {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        > .score-holder {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    > .entity {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+
+        &.left {
+            left: calc(20% - 50px);
+        }
+    
+        &.center {
+            left: calc(50% - 50px);
+        }
+    
+        &.right {
+            left: calc(80% - 50px);
+        }
+    }
+
+    > .instant-score {
+        pointer-events: none;
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        right: 0;
+        top: 30vh;
+
+        text-align: center;
+
+        font-size: 100px;
+        color: #fff454;
+    }
+}
+
+#scene-3,
+#scene-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: #00000077;
+
+    > h1 {
+        margin: 0;
+        font-size: 42px;
+        animation: 1s titleH1 infinite linear alternate;
+    }
+
+    > h2 {
+        color: #fff454;
+        font-size: 32px;
+        margin: 0;
+        animation: 1s titleH2 infinite linear alternate;
+
+        > .score {
+            color: #f3420c;
+        }
+    }
+
+    > .button {
+        border: 3px solid #041c85;
+        text-transform: uppercase;
+        font-family: 'VT323', monospace;
+        font-size: 24px;
+
+        padding: 16px;
+        background-color: #0118cc;
+        color: #19c2f9;
+        animation: 100ms titleButton infinite linear alternate;
+    }
+}
+
+#character {
+    position: fixed;
+    z-index: 2;
+    bottom: -450px;
+
+    transition: 100ms left linear;
+
+    &.left {
+        left: calc(20% - 50px);
+    }
+
+    &.center {
+        left: calc(50% - 50px);
+    }
+
+    &.right {
+        left: calc(80% - 50px);
+    }
+}
+
+@keyframes titleH1 {
+    0% {
+        color: #f3420c;
+    }
+    100% {
+        color: #e70809;
+    }
+}
+
+@keyframes titleH2 {
+    0% {
+        color: #fff454;
+    }
+    100% {
+        color: #ffe5da;
+    }
+}
+
+@keyframes titleButton {
+    0% {
+        filter: saturate(2);
+    }
+    100% {
+        filter: saturate(0);
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scene1Scroll {
+    0% {background-position: 100%;}
+    100% {background-position: 0%;}
+}
+
+@keyframes scene2Scroll {
+    0% {background-position: 100% 0px;}
+    100% {background-position: 100% 1754px;}
+}
+
+@keyframes entityScroll {
+    0% {bottom: 100vh}
+    100% {bottom: 0;}
+}

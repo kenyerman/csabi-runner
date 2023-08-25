@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Csabi runner - Are you ready for marriage?</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
+    </head>
+    <body>
+        <div id="scene-0" class="scene active">
+            <h1>Csabi runner</h1>
+            <h2>Are you ready for marriage?</h2>
+
+            <div class="button" onclick="nextScene()">
+                START
+            </div>
+
+            <img class="csabi" src="/assets/csabi.png">
+            <img class="trouble" src="/assets/trouble.gif">
+        </div>
+
+
+        <div id="scene-1" class="scene">
+            <h1>Late night at the bar...</h1>
+            <img class="csabi" src="/assets/csabi.png">
+            <div class="textbox">
+                <div class="text1 left">sry can u tell me the time?</div>
+                <div class="text2 right">it's 23:30 m8</div>
+                <div class="text3 left">shiiiiieeeeet!</div>
+                <div class="text4 left">im late af. have 2 go home!!!!</div>
+                <div class="btn-holder">
+                    <div class="button" onclick="nextScene()">
+                        RUN THE FUCK HOME
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="scene-2" class="scene">
+            <div class="title-bar">
+                <div class="speed">
+                    SPEED:
+                    <div id="speed">50</div>
+                    KM/H
+                </div>
+                <div class="score-holder">
+                    SCORE: 
+                    <div id="score">50</div>
+                </div>
+            </div>
+            <div class="left map" src="/assets/left.png" onclick="switchLane('left')"></div>
+            <div class="center map" src="/assets/center.png" onclick="switchLane('center')"></div>
+            <div class="right map" src="/assets/right.png" onclick="switchLane('right')"></div>
+            <img id="character" class="center" src="/assets/character.png"/>
+        </div>
+
+        <div id="scene-3" class="scene">
+            <h1>GAME OVER</h1>
+            <h1>You became a papucs</h1>
+
+            <h2>You scored <span id="score-2"></span></h2>
+
+            <div class="button" onclick="retry()">
+                RETRY?
+            </div>
+        </div>
+
+        <div id="scene-4" class="scene">
+            <h1>YOU WIN</h1>
+            <h1>You are ready!</h1>
+
+            <h2>You scored <span id="score-3"></span></h2>
+
+            <div class="button" onclick="retry()">
+                RETRY?
+            </div>
+        </div>
+
+        <script src="./app.js"></script>
+    </body>
+</html>
