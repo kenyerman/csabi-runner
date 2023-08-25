@@ -310,7 +310,7 @@ html, body {
 #character {
     position: fixed;
     z-index: 2;
-    bottom: -40vh;
+    top: calc(80vh - 70px);
 
     transition: 100ms left linear;
 
