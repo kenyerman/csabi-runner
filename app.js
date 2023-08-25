@@ -200,7 +200,7 @@ const addScore = (increment) => {
 
     document.getElementById('scene-2').appendChild(element);
 
-    if (50 <= score) {
+    if (5000 <= score) {
         youWin();
         document.getElementById(`scene-4`).classList.add('active');
     }
