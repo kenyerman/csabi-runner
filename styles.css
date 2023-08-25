@@ -79,7 +79,7 @@ html, body {
 }
 
 #scene-1 {
-    background: url('./assets/scene-1.jpg');
+    background: url('/assets/scene-1.jpg');
     background-size: 200% 100%;
     background-position: 100% 100%;
 
