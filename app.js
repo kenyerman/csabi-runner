@@ -8,11 +8,6 @@ const nextScene = () => {
     if (sceneCounter === 2) {
         characterAnimation(undefined);
     }
-
-    if (sceneCounter === 1) {
-        const elem = document.getElementsByTagName("body")[0];
-        elem.requestFullscreen();
-    }
 }
 
 let speed = 200;
@@ -152,7 +147,8 @@ const addEntity = (lane, name) => {
             speed * 30
         )
         .onfinish = () => {
-            if (lane === currentLane) {
+
+            if (!ended && lane === currentLane) {
                 if (name === 'flipflop') {
                     gameOver();
                     nextScene();
@@ -204,7 +200,7 @@ const addScore = (increment) => {
 
     document.getElementById('scene-2').appendChild(element);
 
-    if (5000 <= score) {
+    if (50 <= score) {
         youWin();
         document.getElementById(`scene-4`).classList.add('active');
     }
